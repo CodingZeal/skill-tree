@@ -21,3 +21,9 @@ export const myStaticRatings = unique_url => {
     return resp.json();
   });
 };
+
+export const allCategories = () => {
+  return fetch(`/categories`).then(resp => {
+    return resp.json();
+  });
+};

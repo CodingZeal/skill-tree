@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Profile from "./Profile";
 import StaticProfile from "./StaticProfile";
+import RankMyself from "./RankMyself";
 
 class Routes extends React.Component {
   constructor(props) {
@@ -29,6 +30,11 @@ class Routes extends React.Component {
           exact
           path="/staticprofile/:unique_url"
           render={props => <StaticProfile {...props} />}
+        />
+        <Route
+          exact
+          path="/rankmyself/:id"
+          render={props => <RankMyself {...props} />}
         />
       </Router>
     );

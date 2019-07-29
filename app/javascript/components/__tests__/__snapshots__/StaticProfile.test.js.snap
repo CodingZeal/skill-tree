@@ -2,47 +2,59 @@
 
 exports[`<StaticProfile> renders corretly 1`] = `
 <div
-  className="staticprofile"
+  className="profile"
 >
   <h1
     className="card-header"
   >
-    undefined's Profile
+    My Profile
   </h1>
   <div
     className="card"
   >
-    <h1
-      id="fullname"
+    <div
+      className="card-content"
     >
-
-    </h1>
-    <h2
-      className="card-info"
-      id="email"
-    >
-      <span
-        aria-label="envelope"
-        role="img"
+      <h1
+        className="card-info"
+        id="fullname"
       >
-
-        ✉️
-      </span>
-
-    </h2>
-    <h2
-      className="card-info"
-      id="timezone"
-    >
-      <span
-        aria-label="globe"
-        role="img"
+         
+      </h1>
+      <h2
+        className="card-info"
+        id="email"
       >
-
-        🌐
-      </span>
-
-    </h2>
+        <span
+          aria-label="envelope"
+          role="img"
+        >
+           
+          ✉️
+        </span>
+         
+      </h2>
+      <h2
+        className="card-info"
+        id="timezone"
+      >
+        <span
+          aria-label="globe"
+          role="img"
+        >
+           
+          🌐
+        </span>
+         
+      </h2>
+    </div>
+    <div
+      className="categories"
+    >
+      <AllCategories
+        myRatings={Array []}
+      />
+    </div>
   </div>
 </div>
 `;

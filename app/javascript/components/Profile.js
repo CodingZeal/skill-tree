@@ -8,7 +8,8 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       myRatings: [],
-      user: []
+      user: [],
+      categories: []
     };
   }
 
