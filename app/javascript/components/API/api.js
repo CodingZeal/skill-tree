@@ -21,3 +21,27 @@ export const myStaticRatings = unique_url => {
     return resp.json();
   });
 };
+
+export const myLastRating = id => {
+  return fetch(`/mycurrentratings/${id}.json`).then(resp => {
+    return resp.json();
+  });
+};
+
+export const createRating = params => {
+  return fetch(`/ratings`, {
+    body: JSON.stringify(params),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "POST"
+  }).then(resp => {
+    return resp.json();
+  });
+};
+
+export const allCategories = () => {
+  return fetch(`/categories`).then(resp => {
+    return resp.json();
+  });
+};

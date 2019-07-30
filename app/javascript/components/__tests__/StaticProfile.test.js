@@ -1,6 +1,7 @@
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
+import "whatwg-fetch";
 
 import StaticProfile from "../StaticProfile";
 
@@ -14,7 +15,12 @@ describe("<StaticProfile>", () => {
     timezone: "UTC",
     url: "iou22o38f4"
   };
-  const wrapper = shallow(<StaticProfile profile={profile} />);
+  const wrapper = shallow(
+    <StaticProfile
+      match={{ params: { unique_url: "iou22o38f4" } }}
+      profile={profile}
+    />
+  );
   it("renders corretly", () => {
     expect(wrapper).toMatchSnapshot();
   });

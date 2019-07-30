@@ -1,14 +1,15 @@
 import React from "react";
 
 import AllCategories from "./AllCategories";
-import { myRatings, oneUser } from "./API/api";
+import { myLastRating, oneUser } from "./API/api";
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       myRatings: [],
-      user: []
+      user: [],
+      categories: []
     };
   }
 
@@ -31,13 +32,14 @@ class Profile extends React.Component {
     oneUser(id).then(APIuser => {
       this.setState({ user: APIuser });
     });
-    myRatings(id).then(APIrating => {
+    myLastRating(id).then(APIrating => {
       this.setState({ myRatings: APIrating });
     });
   }
 
   render() {
     const { user, myRatings } = this.state;
+    const { current_user } = this.props;
     // coming from fetch of profile (find where(url = {url}))
     const host = window.location.origin;
 
@@ -46,7 +48,12 @@ class Profile extends React.Component {
 
     return (
       <div className="profile">
-        <h1 className="card-header">My Profile</h1>
+        <div className="header-area">
+          <h1 className="card-header">My Profile</h1>
+          {(current_user.id == user.id && (
+            <button className="rank-btn">RANK MYSELF</button>
+          )) || <button className="rank-btn">RANK {user.first_name}</button>}
+        </div>
         <div className="card">
           <div className="card-content">
             <h1 className="card-info" id="fullname">

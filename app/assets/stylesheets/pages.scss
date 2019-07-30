@@ -449,7 +449,6 @@ input:checked ~ .checkmark:after {
   grid-template-columns: 25% 75%;
   grid-template-rows: auto;
   grid-template-areas: "card categories";
-
   padding: 29px 40px 20px;
   border-style: none none solid;
   border-width: 1px 1px 6px;
@@ -458,6 +457,25 @@ input:checked ~ .checkmark:after {
   background-color: #fff;
   box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.02),
     0 29px 21px -20px rgba(0, 0, 0, 0.14);
+}
+.profile .header-area {
+  display: grid;
+  grid-template-columns: 45% 37% 18%;
+  grid-template-rows: auto;
+  grid-template-areas: "card-header . rank-btn";
+}
+.header-area .card-header {
+  grid-area: card-header;
+}
+.header-area .rank-btn {
+  grid-area: rank-btn;
+  background-color: #ffb648;
+  color: white;
+  font-size: 20px;
+  border-radius: 50px;
+  right: 0;
+  height: 50px;
+  width: auto;
 }
 
 .card-content {

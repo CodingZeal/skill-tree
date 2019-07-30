@@ -27,7 +27,7 @@ class App extends React.Component {
           sign_out_path={sign_out_path}
         />
         <div className="wrapper">
-          <Routes />
+          <Routes current_user={current_user} />
         </div>
       </div>
     );
