@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Category> renders without crashing 1`] = `
+<div
+  className="category"
+>
+  <h2
+    id="category_name"
+  >
+     
+    Rails
+  </h2>
+</div>
+`;
