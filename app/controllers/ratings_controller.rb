@@ -2,6 +2,7 @@
 
 # deals with ratings
 class RatingsController < ApplicationController
+
   def index
     @ratings = []
     Rating.find_each do |rating|

@@ -2,6 +2,7 @@
 
 # ratings belog to categories, mentors, and developers
 class Rating < ApplicationRecord
+  validates :score, presence: true
   belongs_to :category
 
   belongs_to :mentor,

@@ -8,17 +8,12 @@ import StaticProfile from "./StaticProfile";
 class Routes extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      url: "iou22o38f4"
-    };
+    this.state = {};
   }
 
   render() {
-    const { url } = this.state;
-    const { current_user } = this.props;
-
-    // builds custom url
-    const profUrl = `/profile/${url}`;
+    const { user } = this.state;
+    const { current_user, token } = this.props;
 
     return (
       <Router>
@@ -35,7 +30,9 @@ class Routes extends React.Component {
         <Route
           exact
           path="/rankmyself/:id"
-          render={props => <RankMyself {...props} />}
+          render={props => (
+            <RankMyself {...props} current_user={current_user} token={token} />
+          )}
         />
       </Router>
     );

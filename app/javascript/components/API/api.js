@@ -28,11 +28,12 @@ export const myLastRating = id => {
   });
 };
 
-export const createRating = params => {
+export const createRating = (rating, token) => {
   return fetch(`/ratings`, {
-    body: JSON.stringify(params),
+    body: JSON.stringify(rating),
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "X-CSRF-Token": token
     },
     method: "POST"
   }).then(resp => {

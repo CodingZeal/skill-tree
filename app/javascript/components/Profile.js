@@ -8,8 +8,7 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       myRatings: [],
-      user: [],
-      categories: []
+      user: []
     };
   }
 
@@ -45,14 +44,22 @@ class Profile extends React.Component {
 
     // local host will change on deployment
     const myUrl = `${host}/staticprofile/`;
+    const rankUrl = `/rankmyself/${user.id}`;
 
     return (
       <div className="profile">
         <div className="header-area">
           <h1 className="card-header">My Profile</h1>
           {(current_user.id == user.id && (
-            <button className="rank-btn">RANK MYSELF</button>
-          )) || <button className="rank-btn">RANK {user.first_name}</button>}
+            <button className="rank-btn">
+              <a href={rankUrl}> RANK MYSELF </a>
+            </button>
+          )) || (
+            <button className="rank-btn">
+              {" "}
+              <a href={rankUrl}> RANK {user.first_name} </a>{" "}
+            </button>
+          )}
         </div>
         <div className="card">
           <div className="card-content">

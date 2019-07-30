@@ -11,7 +11,8 @@ RSpec.describe RatingsController, type: :controller do
       build(:rating,
             mentor: user,
             developer: user,
-            category: category)
+            category: category
+          )
     end
     let(:rating2) do
       build(:rating,
@@ -28,6 +29,10 @@ RSpec.describe RatingsController, type: :controller do
       get :my_ratings, params: { user_id: user.id }
       expect(response.body)
         .to eq([rating.as_json(include: { category: {} })].to_json)
+    end
+    it 'fails to create when there is no score' do
+      rating.score = nil
+      expect(rating).to_not be_valid
     end
   end
 end
