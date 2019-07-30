@@ -32,6 +32,7 @@ class Category extends React.Component {
       <div className="category">
         <form className="rank_buttons">
           <button
+            className="zero"
             name="score"
             value="0"
             onClick={this.handleClick}
@@ -40,6 +41,7 @@ class Category extends React.Component {
             0
           </button>
           <button
+            className="one"
             name="score"
             value="1"
             onClick={this.handleClick}
@@ -48,6 +50,7 @@ class Category extends React.Component {
             1
           </button>
           <button
+            className="two"
             name="score"
             value="2"
             onClick={this.handleClick}
@@ -56,6 +59,7 @@ class Category extends React.Component {
             2
           </button>
           <button
+            className="three"
             name="score"
             value="3"
             onClick={this.handleClick}
@@ -64,6 +68,7 @@ class Category extends React.Component {
             3
           </button>
           <button
+            className="five"
             name="score"
             value="5"
             onClick={this.handleClick}
@@ -72,6 +77,7 @@ class Category extends React.Component {
             5
           </button>
           <button
+            className="eight"
             name="score"
             value="8"
             onClick={this.handleClick}
@@ -80,8 +86,10 @@ class Category extends React.Component {
             8
           </button>
         </form>
-        <div>{rating.score}</div>
-        <h2 id="category_name"> {category.category_name}</h2>
+        <div className="score">
+          <h2>{rating.score}</h2>
+        </div>
+        <h1 id="category_name"> {category.category_name}</h1>
       </div>
     );
   }

@@ -80,11 +80,21 @@ class RankMyself extends React.Component {
     });
 
     return (
-      <div className="rank_myslef">
-        <div className="card">{categoryList}</div>
-        <button onClick={this.handleSubmit} type="button">
-          Submit
-        </button>
+      <div className="rank_myself">
+        <h1> Rank A Developer</h1>
+        <h3>
+          {user.first_name} {user.last_name}
+        </h3>
+        <div className="card">
+          {categoryList}
+          <button
+            onClick={this.handleSubmit}
+            className="rank_submition"
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
       </div>
     );
   }
