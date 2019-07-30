@@ -512,3 +512,106 @@ input:checked ~ .checkmark:after {
 #category_name {
   grid-area: category_name;
 }
+
+/////////////////////category and rank myself/////////////////
+
+.rank_myself .card {
+  background-color: #f0f0f0;
+  border-radius: 30px;
+  padding-top: 25px;
+  padding: 29px 40px 20px;
+  border-style: none none solid;
+  border-width: 1px 1px 6px;
+  border-color: #dedede #dedede #ffb648;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.02),
+    0 29px 21px -20px rgba(0, 0, 0, 0.14);
+}
+.rank_myself h3 {
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.category {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  display: grid;
+  grid-template-columns: 25px 110px 50px auto;
+  grid-template-rows: 20px 20px 20px 20px 20px 20px;
+  grid-template-areas:
+    "zero . . ."
+    "one score . ."
+    "two score . category_name"
+    "three score . category_name"
+    "five score . ."
+    "eight . . .";
+}
+.category button {
+  height: 2px;
+  width: 2px;
+  color: #adadad;
+  left: 0;
+  text-align: center;
+  border-style: none;
+  cursor: pointer;
+}
+.category form {
+  opacity: 0;
+}
+.category form:hover {
+  opacity: 1;
+}
+.zero {
+  grid-area: zero;
+}
+.one {
+  grid-area: one;
+}
+.two {
+  grid-area: two;
+}
+.three {
+  grid-area: three;
+}
+.five {
+  grid-area: five;
+}
+.eight {
+  grid-area: eight;
+}
+.category .score {
+  grid-area: score;
+  font-size: 30px;
+  padding-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 10px;
+  border-bottom: solid;
+  background-color: #f0f0f0;
+  display: grid;
+  grid-template-columns: 33% 33% 34%;
+  grid-template-rows: 33% 33% 34%;
+  grid-template-areas:
+    ".    .    ."
+    ". content ."
+    ".    .    .";
+}
+.score h2 {
+  grid-area: content;
+  color: #adadad;
+}
+#category_name {
+  grid-area: category_name;
+  color: #505050;
+}
+.rank_submition {
+  margin-top: 20px;
+  background-color: #ffb648;
+  border-style: none;
+  color: white;
+  height: 40px;
+  width: 150px;
+  border-radius: 20px;
+  font-size: 20px;
+}
