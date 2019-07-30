@@ -65,7 +65,7 @@ class RankMyself extends React.Component {
   render() {
     const { categories, user, ratings } = this.state;
     const { current_user } = this.props;
-    console.log(ratings);
+
     const categoryList = categories.map((category, index) => {
       return (
         <Category

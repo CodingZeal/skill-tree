@@ -2,6 +2,16 @@
 
 exports[`<RankMyself> renders without crashing 1`] = `
 <div
-  className="card"
-/>
+  className="rank_myslef"
+>
+  <div
+    className="card"
+  />
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Submit
+  </button>
+</div>
 `;
