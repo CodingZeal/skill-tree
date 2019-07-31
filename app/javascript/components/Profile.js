@@ -50,12 +50,12 @@ class Profile extends React.Component {
       <div className="profile">
         <div className="header-area">
           <h1 className="card-header">My Profile</h1>
-          {(current_user.id == user.id && (
-            <button className="rank-btn">
+          {(current_user.id === user.id && (
+            <button className="rank-btn" type="button">
               <a href={rankUrl}> RANK MYSELF </a>
             </button>
           )) || (
-            <button className="rank-btn">
+            <button className="rank-btn" type="button">
               {" "}
               <a href={rankUrl}> RANK {user.first_name} </a>{" "}
             </button>

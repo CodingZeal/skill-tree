@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import RankMyself from "./RankMyself";
 
 import Profile from "./Profile";
 import StaticProfile from "./StaticProfile";
@@ -12,7 +11,6 @@ class Routes extends React.Component {
   }
 
   render() {
-    const { user } = this.state;
     const { current_user, token } = this.props;
 
     return (

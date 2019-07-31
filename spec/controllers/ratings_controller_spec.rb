@@ -11,8 +11,7 @@ RSpec.describe RatingsController, type: :controller do
       build(:rating,
             mentor: user,
             developer: user,
-            category: category
-          )
+            category: category)
     end
     let(:rating2) do
       build(:rating,

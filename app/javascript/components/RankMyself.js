@@ -1,6 +1,6 @@
 import React from "react";
-import { allCategories, createRating, oneUser } from "./API/api";
 
+import { allCategories, createRating, oneUser } from "./API/api";
 import Category from "./Category";
 
 class RankMyself extends React.Component {
@@ -63,18 +63,18 @@ class RankMyself extends React.Component {
   };
 
   render() {
-    const { categories, user, ratings } = this.state;
+    const { categories, user } = this.state;
     const { current_user } = this.props;
 
     const categoryList = categories.map((category, index) => {
       return (
         <Category
-          index={index}
-          key={category.id}
+          addRating={this.addRating}
           category={category}
           current_user={current_user}
+          index={index}
+          key={category.id}
           user={user}
-          addRating={this.addRating}
         />
       );
     });
@@ -88,8 +88,8 @@ class RankMyself extends React.Component {
         <div className="card">
           {categoryList}
           <button
-            onClick={this.handleSubmit}
             className="rank_submition"
+            onClick={this.handleSubmit}
             type="button"
           >
             Submit

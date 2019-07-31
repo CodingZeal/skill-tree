@@ -3,11 +3,13 @@ import React from "react";
 class Category extends React.Component {
   constructor(props) {
     super(props);
+    const { category, user, current_user } = this.props;
+
     this.state = {
       rating: {
-        category_id: this.props.category.id,
-        developer_id: this.props.user.id,
-        mentor_id: this.props.current_user.id,
+        category_id: category.id,
+        developer_id: user.id,
+        mentor_id: current_user.id,
         score: "#"
       }
     };
@@ -18,9 +20,8 @@ class Category extends React.Component {
     const { rating } = this.state;
     const { addRating } = this.props;
 
-    rating[event.target.name] = parseInt(event.target.value);
+    rating[event.target.name] = parseInt(event.target.value, 10);
     this.setState({ rating });
-
     addRating(rating);
   };
 
