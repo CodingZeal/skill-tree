@@ -9,16 +9,24 @@ import "whatwg-fetch";
 Enzyme.configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
 describe("<Profile>", () => {
+  const current_user = {
+    id: 1
+  };
   const profile = {
     email: "john@example.com",
     firstname: "John",
+    id: 1,
     lastname: "Doe",
     timezone: "UTC",
     url: "iou22o38f4"
   };
 
   const wrapper = shallow(
-    <Profile match={{ params: { id: 1 } }} profile={profile} />
+    <Profile
+      match={{ params: { id: 1 } }}
+      profile={profile}
+      current_user={current_user}
+    />
   );
 
   it("renders corretly", () => {
