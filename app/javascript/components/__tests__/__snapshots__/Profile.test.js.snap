@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Profile> renders corretly 1`] = `
+<div
+  className="profile"
+>
+  <div
+    className="header-area"
+  >
+    <h1
+      className="card-header"
+    >
+      My Profile
+    </h1>
+    <button
+      className="rank-btn"
+    >
+       
+      <a
+        href="/rankmyself/undefined"
+      >
+         RANK 
+         
+      </a>
+       
+    </button>
+  </div>
+  <div
+    className="card"
+  >
+    <div
+      className="card-content"
+    >
+      <h1
+        className="card-info"
+        id="fullname"
+      >
+         
+      </h1>
+      <h2
+        className="card-info"
+        id="email"
+      >
+        <span
+          aria-label="envelope"
+          role="img"
+        >
+           
+          ✉️
+        </span>
+         
+      </h2>
+      <h2
+        className="card-info"
+        id="timezone"
+      >
+        <span
+          aria-label="globe"
+          role="img"
+        >
+           
+          🌐
+        </span>
+         
+      </h2>
+      <h2
+        className="card-info"
+        id="url"
+      >
+        http://localhost/staticprofile/
+        <br />
+      </h2>
+    </div>
+    <div
+      className="categories"
+    >
+      <AllCategories
+        myRatings={Array []}
+      />
+    </div>
+  </div>
+</div>
+`;

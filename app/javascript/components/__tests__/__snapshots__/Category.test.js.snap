@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Category> renders without crashing 1`] = `
+<div
+  className="category"
+>
+  <form
+    className="rank_buttons"
+  >
+    <button
+      className="zero"
+      key="0"
+      name="score"
+      onClick={[Function]}
+      type="button"
+      value="0"
+    >
+      0
+    </button>
+    <button
+      className="one"
+      key="1"
+      name="score"
+      onClick={[Function]}
+      type="button"
+      value="1"
+    >
+      1
+    </button>
+    <button
+      className="two"
+      key="2"
+      name="score"
+      onClick={[Function]}
+      type="button"
+      value="2"
+    >
+      2
+    </button>
+    <button
+      className="three"
+      key="3"
+      name="score"
+      onClick={[Function]}
+      type="button"
+      value="3"
+    >
+      3
+    </button>
+    <button
+      className="five"
+      key="5"
+      name="score"
+      onClick={[Function]}
+      type="button"
+      value="5"
+    >
+      5
+    </button>
+    <button
+      className="eight"
+      key="8"
+      name="score"
+      onClick={[Function]}
+      type="button"
+      value="8"
+    >
+      8
+    </button>
+  </form>
+  <div
+    className="score"
+  >
+    <h2>
+      #
+    </h2>
+  </div>
+  <h1
+    id="category_name"
+  >
+     
+    Rails
+  </h1>
+</div>
+`;

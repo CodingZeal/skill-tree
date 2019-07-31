@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Profile from "./Profile";
+import RankMyself from "./RankMyself";
 import StaticProfile from "./StaticProfile";
 
 class Routes extends React.Component {
