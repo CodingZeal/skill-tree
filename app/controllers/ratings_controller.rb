@@ -21,7 +21,10 @@ class RatingsController < ApplicationController
   def my_last_rating
     @my_last_rating = []
     Category.find_each do |category|
-      @all_my_ratings = Rating.where('developer_id = ? and mentor_id = ? and category_id = ?', params[:user_id], params[:user_id], category.id).as_json(include: { category: {} })
+      @all_my_ratings = Rating.where('developer_id = ? and mentor_id = ? and category_id = ?',
+                                      params[:user_id],
+                                      params[:user_id],
+                                      category.id).as_json(include: { category: {} })
       if @all_my_ratings.length > 0
         @my_last_rating << @all_my_ratings.last
       end
@@ -33,7 +36,10 @@ class RatingsController < ApplicationController
     @my_last_rating = []
     @user = User.where('unique_url = ?', params[:unique_url]).first
     Category.find_each do |category|
-      @all_my_ratings = Rating.where('developer_id = ? and mentor_id = ? and category_id = ?', @user.id, @user.id, category.id).as_json(include: { category: {} })
+      @all_my_ratings = Rating.where('developer_id = ? and mentor_id = ? and category_id = ?',
+                                      @user.id,
+                                      @user.id,
+                                      category.id).as_json(include: { category: {} })
       if @all_my_ratings.length > 0
         @my_last_rating << @all_my_ratings.last
       end
