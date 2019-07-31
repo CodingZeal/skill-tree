@@ -19,21 +19,21 @@ class RatingsController < ApplicationController
   end
 
   def my_last_rating
-    @my_last_rating = []
+    @my_last_ratings = []
     Category.find_each do |category|
       @all_my_ratings = Rating.where('developer_id = ? and mentor_id = ? and category_id = ?',
                                       params[:user_id],
                                       params[:user_id],
                                       category.id).as_json(include: { category: {} })
       if @all_my_ratings.length > 0
-        @my_last_rating << @all_my_ratings.last
+        @my_last_ratings << @all_my_ratings.last
       end
     end
-    render json: @my_last_rating
+    render json: @my_last_ratings
   end
 
   def my_static_ratings
-    @my_last_rating = []
+    @my_last_ratings = []
     @user = User.where('unique_url = ?', params[:unique_url]).first
     Category.find_each do |category|
       @all_my_ratings = Rating.where('developer_id = ? and mentor_id = ? and category_id = ?',
@@ -41,10 +41,10 @@ class RatingsController < ApplicationController
                                       @user.id,
                                       category.id).as_json(include: { category: {} })
       if @all_my_ratings.length > 0
-        @my_last_rating << @all_my_ratings.last
+        @my_last_ratings << @all_my_ratings.last
       end
     end
-    render json: @my_last_rating
+    render json: @my_last_ratings
   end
 
   def create
