@@ -27,65 +27,32 @@ class Category extends React.Component {
   render() {
     const { rating } = this.state;
     const { category } = this.props;
+    const scores = [
+      { className: "zero", value: "0" },
+      { className: "one", value: "1" },
+      { className: "two", value: "2" },
+      { className: "three", value: "3" },
+      { className: "five", value: "5" },
+      { className: "eight", value: "8" }
+    ];
+    const buttons = scores.map(v => {
+      return (
+        <button
+          className={v.className}
+          key={v.value}
+          name="score"
+          onClick={this.handleClick}
+          type="button"
+          value={v.value}
+        >
+          {v.value}
+        </button>
+      );
+    });
 
     return (
       <div className="category">
-        <form className="rank_buttons">
-          <button
-            className="zero"
-            name="score"
-            value="0"
-            onClick={this.handleClick}
-            type="button"
-          >
-            0
-          </button>
-          <button
-            className="one"
-            name="score"
-            value="1"
-            onClick={this.handleClick}
-            type="button"
-          >
-            1
-          </button>
-          <button
-            className="two"
-            name="score"
-            value="2"
-            onClick={this.handleClick}
-            type="button"
-          >
-            2
-          </button>
-          <button
-            className="three"
-            name="score"
-            value="3"
-            onClick={this.handleClick}
-            type="button"
-          >
-            3
-          </button>
-          <button
-            className="five"
-            name="score"
-            value="5"
-            onClick={this.handleClick}
-            type="button"
-          >
-            5
-          </button>
-          <button
-            className="eight"
-            name="score"
-            value="8"
-            onClick={this.handleClick}
-            type="button"
-          >
-            8
-          </button>
-        </form>
+        <form className="rank_buttons">{buttons}</form>
         <div className="score">
           <h2>{rating.score}</h2>
         </div>

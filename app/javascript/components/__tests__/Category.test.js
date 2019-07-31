@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe("<Category>", () => {
   const addRating = () => {
-    console.log("hello there");
+    true;
   };
   const current_user = {
     id: 1
@@ -32,8 +32,64 @@ describe("<Category>", () => {
   it("renders without crashing", () => {
     expect(wrapper).toMatchSnapshot();
   });
-  it("shows current rating when number is clicked", () => {
-    wrapper.setState({ rating: { score: 0 } });
+});
+
+describe("Rating skills", () => {
+  const addRating = () => {
+    true;
+  };
+  const current_user = {
+    id: 1
+  };
+  const user = {
+    id: 1
+  };
+  const category = {
+    category_name: "Rails",
+    id: 3
+  };
+  const wrapper = shallow(
+    <Category
+      addRating={addRating}
+      category={category}
+      current_user={current_user}
+      user={user}
+    />
+  );
+
+  it("shows current rating when 0 is clicked", () => {
+    const mockedEvent = { target: { name: "score", value: "0" } };
+
+    wrapper.find(".zero").simulate("click", mockedEvent);
+
     expect(wrapper.find("h2").text()).toEqual("0");
+  });
+  it("shows current rating when 1 is clicked", () => {
+    const mockedEvent = { target: { name: "score", value: "1" } };
+
+    wrapper.find(".one").simulate("click", mockedEvent);
+
+    expect(wrapper.find("h2").text()).toEqual("1");
+  });
+  it("shows current rating when 2 is clicked", () => {
+    const mockedEvent = { target: { name: "score", value: "2" } };
+
+    wrapper.find(".two").simulate("click", mockedEvent);
+
+    expect(wrapper.find("h2").text()).toEqual("2");
+  });
+  it("shows current rating when 3 is clicked", () => {
+    const mockedEvent = { target: { name: "score", value: "3" } };
+
+    wrapper.find(".three").simulate("click", mockedEvent);
+
+    expect(wrapper.find("h2").text()).toEqual("3");
+  });
+  it("shows current rating when 5 is clicked", () => {
+    const mockedEvent = { target: { name: "score", value: "5" } };
+
+    wrapper.find(".five").simulate("click", mockedEvent);
+
+    expect(wrapper.find("h2").text()).toEqual("5");
   });
 });
