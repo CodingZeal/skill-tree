@@ -39,7 +39,6 @@ class StaticProfile extends React.Component {
   render() {
     const { user, myRatings } = this.state;
 
-    debugger;
     return (
       <div className="profile">
         <h1 className="card-header">My Profile</h1>
