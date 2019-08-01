@@ -1,7 +1,7 @@
 import React from "react";
 
 import AllCategories from "./AllCategories";
-import { myStaticRatings, oneStaticUser } from "./API/api";
+import { myLastRating, oneUser } from "./API/api";
 
 class StaticProfile extends React.Component {
   constructor(props) {
@@ -28,10 +28,10 @@ class StaticProfile extends React.Component {
     const { match } = this.props;
     const { unique_url } = match.params;
 
-    oneStaticUser(unique_url).then(APIuser => {
+    oneUser(unique_url).then(APIuser => {
       this.setState({ user: APIuser });
     });
-    myStaticRatings(unique_url).then(APIrating => {
+    myLastRating(unique_url).then(APIrating => {
       this.setState({ myRatings: APIrating });
     });
   }
@@ -39,6 +39,7 @@ class StaticProfile extends React.Component {
   render() {
     const { user, myRatings } = this.state;
 
+    debugger;
     return (
       <div className="profile">
         <h1 className="card-header">My Profile</h1>

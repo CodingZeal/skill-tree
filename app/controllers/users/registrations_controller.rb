@@ -12,13 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def one_user
-    @user = User.find(params[:id])
-    render json: @user
-  end
-
-  def static_user
-    @user = User.where('unique_url = ?', params[:unique_url]).first
-    render json: @user
+    user ||= (User.find_by(unique_url: params[:params]) || User.find(params[:params]))
+    render json: user
   end
 
   # If you have extra params to permit, append them to the sanitizer.
