@@ -1,5 +1,7 @@
 import React from "react";
 
+import { BrowserRouter as Router, Link } from "react-router-dom";
+
 import AllCategories from "./AllCategories";
 import { myLastRating, oneUser } from "./API/api";
 
@@ -8,7 +10,8 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       myRatings: [],
-      user: []
+      user: [],
+      upcaseName: ""
     };
   }
 
@@ -29,7 +32,10 @@ class Profile extends React.Component {
     const { id } = match.params;
 
     oneUser(id).then(APIuser => {
-      this.setState({ user: APIuser });
+      this.setState({
+        upcaseName: APIuser.first_name.toUpperCase(),
+        user: APIuser
+      });
     });
     myLastRating(id).then(APIrating => {
       this.setState({ myRatings: APIrating });
@@ -37,7 +43,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { user, myRatings } = this.state;
+    const { user, myRatings, upcaseName } = this.state;
     const { current_user } = this.props;
     // coming from fetch of profile (find where(url = {url}))
     const host = window.location.origin;
@@ -45,21 +51,25 @@ class Profile extends React.Component {
     // local host will change on deployment
     const myUrl = `${host}/staticprofile/`;
     const rankUrl = `/rankmyself/${user.id}`;
+    const headerName = `${user.first_name}'s`;
 
     return (
       <div className="profile">
-        <div className="header-area">
-          <h1 className="card-header">My Profile</h1>
-          {(current_user.id === user.id && (
-            <button className="rank-btn" type="button">
-              <a href={rankUrl}> RANK MYSELF </a>
-            </button>
-          )) || (
-            <button className="rank-btn" type="button">
-              <a href={rankUrl}> RANK {user.first_name} </a>{" "}
-            </button>
-          )}
-        </div>
+        {(current_user.id === user.id && (
+          <div className="header-area">
+            <h1 className="card-header">My Profile</h1>
+            <Link className="rank-btn-link" to={rankUrl}>
+              <h4>RANK MYSELF</h4>
+            </Link>
+          </div>
+        )) || (
+          <div className="header-area">
+            <h1 className="card-header">{headerName} Profile</h1>
+            <Link className="rank-btn-link" to={rankUrl}>
+              <h4>RANK {upcaseName}</h4>
+            </Link>
+          </div>
+        )}
         <div className="card">
           <div className="card-content">
             <h1 className="card-info" id="fullname">
