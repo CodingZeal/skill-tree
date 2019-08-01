@@ -14,18 +14,18 @@ class RankMyself extends React.Component {
   }
 
   componentWillMount() {
-    this.renderingFunction();
+    this.fetchData();
   }
 
   componentDidUpdate(prevProps) {
     const { match } = this.props;
 
     if (match.params.id !== prevProps.match.params.id) {
-      this.renderingFunction();
+      this.fetchData();
     }
   }
 
-  renderingFunction() {
+  fetchData() {
     const { match } = this.props;
     const { id } = match.params;
 

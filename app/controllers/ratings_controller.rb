@@ -17,31 +17,12 @@ class RatingsController < ApplicationController
     render json: ratings
   end
 
-  # def my_last_rating
-  #   last_ratings_in_each_category = []
-  #   Category.find_each do |category|
-  #     all_my_ratings = Rating.where(
-  #       'developer_id = ? and mentor_id = ? and category_id = ?',
-  #       params[:user_id],
-  #       params[:user_id],
-  #       category.id
-  #     )
-  #                            .as_json(include: { category: {} })
-  #     all_my_ratings.length.positive? && last_ratings_in_each_category << all_my_ratings.last
-  #   end
-  #   render json: last_ratings_in_each_category
-  # end
-
   def my_last_rating
     last_ratings_in_each_category = []
-    user ||= (User.find_by(unique_url: params[:params]) || User.find(params[:params]))
+    user
     Category.find_each do |category|
-      all_my_ratings = Rating.where(
-        'developer_id = ? and mentor_id = ? and category_id = ?',
-        user.id,
-        user.id,
-        category.id
-      )
+      all_my_ratings = Rating.where('developer_id = ? and mentor_id = ? and category_id = ?',
+                                    user.id, user.id, category.id)
                              .as_json(include: { category: {} })
       all_my_ratings.length.positive? && last_ratings_in_each_category << all_my_ratings.last
     end
@@ -54,11 +35,16 @@ class RatingsController < ApplicationController
       render json: rating
     else
       render json: rating.errors, status: :unprocessable_entity
-      p rating.errors
     end
   end
 
   def rating_params
     params.require(:rating).permit(:category_id, :developer_id, :mentor_id, :score)
+  end
+
+  private
+
+  def user
+    user ||= (User.find_by(unique_url: params[:params]) || User.find(params[:params]))
   end
 end

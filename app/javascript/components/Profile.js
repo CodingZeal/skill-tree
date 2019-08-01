@@ -13,18 +13,18 @@ class Profile extends React.Component {
   }
 
   componentWillMount() {
-    this.renderingFunction();
+    this.fetchData();
   }
 
   componentDidUpdate(prevProps) {
     const { match } = this.props;
 
     if (match.params.id !== prevProps.match.params.id) {
-      this.renderingFunction();
+      this.fetchData();
     }
   }
 
-  renderingFunction() {
+  fetchData() {
     const { match } = this.props;
     const { id } = match.params;
 
@@ -56,7 +56,6 @@ class Profile extends React.Component {
             </button>
           )) || (
             <button className="rank-btn" type="button">
-              {" "}
               <a href={rankUrl}> RANK {user.first_name} </a>{" "}
             </button>
           )}
@@ -68,16 +67,14 @@ class Profile extends React.Component {
             </h1>
             <h2 className="card-info" id="email">
               <span aria-label="envelope" role="img">
-                {" "}
                 ✉️
-              </span>{" "}
+              </span>
               {user.email}
             </h2>
             <h2 className="card-info" id="timezone">
               <span aria-label="globe" role="img">
-                {" "}
                 🌐
-              </span>{" "}
+              </span>
               {user.time_zone}
             </h2>
             <h2 className="card-info" id="url">

@@ -13,18 +13,18 @@ class StaticProfile extends React.Component {
   }
 
   componentWillMount() {
-    this.renderingFunction();
+    this.fetchData();
   }
 
   componentDidUpdate(prevProps) {
     const { match } = this.props;
 
     if (match.params.unique_url !== prevProps.match.params.unique_url) {
-      this.renderingFunction();
+      this.fetchData();
     }
   }
 
-  renderingFunction() {
+  fetchData() {
     const { match } = this.props;
     const { unique_url } = match.params;
 
@@ -49,16 +49,14 @@ class StaticProfile extends React.Component {
             </h1>
             <h2 className="card-info" id="email">
               <span aria-label="envelope" role="img">
-                {" "}
                 ✉️
-              </span>{" "}
+              </span>
               {user.email}
             </h2>
             <h2 className="card-info" id="timezone">
               <span aria-label="globe" role="img">
-                {" "}
                 🌐
-              </span>{" "}
+              </span>
               {user.time_zone}
             </h2>
           </div>

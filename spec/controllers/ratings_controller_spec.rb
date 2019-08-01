@@ -29,9 +29,5 @@ RSpec.describe RatingsController, type: :controller do
       expect(response.body)
         .to eq([rating.as_json(include: { category: {} })].to_json)
     end
-    it 'fails to create when there is no score' do
-      rating.score = nil
-      expect(rating).to_not be_valid
-    end
   end
 end
