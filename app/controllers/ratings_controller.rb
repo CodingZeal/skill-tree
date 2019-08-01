@@ -29,7 +29,7 @@ class RatingsController < ApplicationController
                              .as_json(include: { category: {} })
       all_my_ratings.length.positive? && last_ratings_in_each_category << all_my_ratings.last
     end
-    render json: my_last_ratings
+    render json: last_ratings_in_each_category
   end
 
   def my_static_ratings
@@ -45,7 +45,7 @@ class RatingsController < ApplicationController
                              .as_json(include: { category: {} })
       all_my_ratings.length.positive? && last_ratings_in_each_category << all_my_ratings.last
     end
-    render json: my_last_ratings
+    render json: last_ratings_in_each_category
   end
 
   def create
