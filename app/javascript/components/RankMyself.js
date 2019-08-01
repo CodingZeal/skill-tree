@@ -87,7 +87,7 @@ class RankMyself extends React.Component {
 
     return (
       <div className="rank_myself">
-        <h1> Rank A Developer</h1>
+        <h1> Rank Another Developer</h1>
         <h3>
           {user.first_name} {user.last_name}
         </h3>
