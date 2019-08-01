@@ -424,10 +424,11 @@ input:checked ~ .checkmark:after {
   transform: translateY(-50%);
 }
 .navBtn {
-  padding: 5px 5px;
+  padding: 5px 5px 0px 50px;
   font-size: 1.2em;
   letter-spacing: 1px;
   text-decoration: none;
+  color: #808080;
 }
 
 .wrapper {
