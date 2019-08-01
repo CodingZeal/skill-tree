@@ -522,12 +522,9 @@ input:checked ~ .checkmark:after {
 }
 
 /////////////////////category and rank myself/////////////////
-
 .rank_myself .card {
   background-color: #f0f0f0;
   border-radius: 30px;
-  padding-top: 25px;
-  padding: 29px 40px 20px;
   border-style: none none solid;
   border-width: 1px 1px 6px;
   border-color: #dedede #dedede #ffb648;
@@ -537,17 +534,22 @@ input:checked ~ .checkmark:after {
     0 29px 21px -20px rgba(0, 0, 0, 0.14);
 }
 .rank_myself h3 {
-  margin: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
+  color: #808080;
 }
-
+.rank_myself h1 {
+}
 .category {
+  color: #adadad;
+  cursor: pointer;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 2px solid #f0f0f0;
+  padding-left: 10px;
+  border-bottom: 2px solid #adadad;
   display: grid;
   grid-template-columns: 25px 110px 50px auto;
-  grid-template-rows: 20px 20px 20px 20px 20px 20px;
+  grid-template-rows: 22px 22px 22px 22px 22px 22px;
   grid-template-areas:
     "zero . . ."
     "one score . ."
@@ -557,19 +559,27 @@ input:checked ~ .checkmark:after {
     "eight . . .";
 }
 .category button {
-  height: 2px;
-  width: 2px;
-  color: #adadad;
+  cursor: pointer;
+  font-size: 15px;
+  height: 3px;
+  width: 3px;
+  margin-left: 4px;
+  padding-bottom: 4px;
+  color: #808080;
   left: 0;
   text-align: center;
   border-style: none;
-  cursor: pointer;
+  font-weight: bold;
+  background-color: rgba(218, 236, 243, 0.3);
+}
+.category:hover {
+  background-color: rgba(218, 236, 243, 0.3);
+}
+.category:hover form {
+  opacity: 1;
 }
 .category form {
   opacity: 0;
-}
-.category form:hover {
-  opacity: 1;
 }
 .zero {
   grid-area: zero;
@@ -598,8 +608,8 @@ input:checked ~ .checkmark:after {
   border-bottom: solid;
   background-color: #f0f0f0;
   display: grid;
-  grid-template-columns: 33% 33% 34%;
-  grid-template-rows: 33% 33% 34%;
+  grid-template-columns: 37% 31% 32%;
+  grid-template-rows: 20% 47% 52%;
   grid-template-areas:
     ".    .    ."
     ". content ."
@@ -610,11 +620,21 @@ input:checked ~ .checkmark:after {
   color: #adadad;
 }
 #category_name {
+  font-family: Nunito Sans Black / Regular;
   grid-area: category_name;
-  color: #505050;
+  color: #808080;
 }
-.rank_submition {
-  margin-top: 20px;
+.test {
+  background-color: #ffb648;
+  border-style: none;
+  color: white;
+  height: 80px;
+  width: 200px;
+}
+.rank_submission {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 50px;
   background-color: #ffb648;
   border-style: none;
   color: white;
@@ -622,4 +642,13 @@ input:checked ~ .checkmark:after {
   width: 150px;
   border-radius: 20px;
   font-size: 20px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.rank_submission h3 {
+  display: inline-block;
+  color: white;
+  margin-top: 10px;
 }

@@ -3,12 +3,13 @@ import React from "react";
 class Category extends React.Component {
   constructor(props) {
     super(props);
-    const { category, user, current_user } = this.props;
+    const { category, current_user, match } = this.props;
+    const { id } = match.params;
 
     this.state = {
       rating: {
         category_id: category.id,
-        developer_id: user.id,
+        developer_id: id,
         mentor_id: current_user.id,
         score: "#"
       }

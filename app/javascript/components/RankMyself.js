@@ -1,5 +1,7 @@
 import React from "react";
 
+import { BrowserRouter as Router, Link } from "react-router-dom";
+
 import { allCategories, createRating, oneUser } from "./API/api";
 import Category from "./Category";
 
@@ -9,7 +11,8 @@ class RankMyself extends React.Component {
     this.state = {
       categories: [],
       ratings: [],
-      user: []
+      user: [],
+      redirect: false
     };
   }
 
@@ -64,7 +67,9 @@ class RankMyself extends React.Component {
 
   render() {
     const { categories, user } = this.state;
-    const { current_user } = this.props;
+    const { current_user, match } = this.props;
+
+    const redirect = `/profile/${user.id}`;
 
     const categoryList = categories.map((category, index) => {
       return (
@@ -74,6 +79,7 @@ class RankMyself extends React.Component {
           current_user={current_user}
           index={index}
           key={category.id}
+          match={match}
           user={user}
         />
       );
@@ -87,13 +93,14 @@ class RankMyself extends React.Component {
         </h3>
         <div className="card">
           {categoryList}
-          <button
-            className="rank_submition"
+          <Link
+            className="rank_submission"
             onClick={this.handleSubmit}
-            type="button"
+            to={redirect}
+            type="link"
           >
-            Submit
-          </button>
+            <h3>Submit</h3>
+          </Link>
         </div>
       </div>
     );
