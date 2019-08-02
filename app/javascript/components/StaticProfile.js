@@ -1,7 +1,11 @@
 import React from "react";
 
 import AllCategories from "./AllCategories";
+import ProfileHeader from "./ProfileHeader";
 import { myLastRating, oneUser } from "./API/api";
+import Avatar from "./avatar.svg";
+import Email from "./email.svg";
+import Timezone from "./timezone.svg";
 
 class StaticProfile extends React.Component {
   constructor(props) {
@@ -38,27 +42,33 @@ class StaticProfile extends React.Component {
 
   render() {
     const { user, myRatings } = this.state;
+    const { current_user, staticProfile } = this.props;
 
     return (
       <div className="profile">
-        <h1 className="card-header">My Profile</h1>
+        <ProfileHeader
+          current_user={current_user}
+          user={user}
+          staticProfile={staticProfile}
+        />
         <div className="card">
           <div className="card-content">
-            <h1 className="card-info" id="fullname">
+            <img alt="Avatar" className="avatar" src={Avatar} />
+            <h1 className="card-info-name" id="fullname">
               {user.first_name} {user.last_name}
             </h1>
-            <h2 className="card-info" id="email">
-              <span aria-label="envelope" role="img">
-                ✉️
-              </span>
-              {user.email}
-            </h2>
-            <h2 className="card-info" id="timezone">
-              <span aria-label="globe" role="img">
-                🌐
-              </span>
-              {user.time_zone}
-            </h2>
+            <div className="card-info">
+              <img alt="Email-icon" className="email-icon icon" src={Email} />
+              <h2 id="email">{user.email}</h2>
+            </div>
+            <div className="card-info">
+              <img
+                alt="Timezone-icon"
+                className="timezone-icon icon"
+                src={Timezone}
+              />
+              <h2 id="timezone">{user.time_zone}</h2>
+            </div>
           </div>
           <div className="categories">
             <AllCategories myRatings={myRatings} />

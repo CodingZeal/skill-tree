@@ -521,6 +521,40 @@ input:checked ~ .checkmark:after {
 #category_name {
   grid-area: category_name;
 }
+.card-info {
+  display: grid;
+  text-align: center;
+  grid-template-columns: 15% 85%;
+  grid-template-rows: auto;
+  grid-template-areas: "image data";
+}
+.card-info h2 {
+  margin-top: 14px;
+  text-align: left;
+  grid-area: data;
+  display: inline-block;
+}
+.card-info img {
+  margin-top: 13px;
+  grid-area: image;
+  display: inline-block;
+}
+.avatar {
+  vertical-align: middle;
+  margin-top: -40px;
+  margin-left: -85px;
+  width: 290px;
+  height: auto;
+  border-radius: 50%;
+}
+.icon {
+  text-align: left;
+  display: inline-block;
+  margin-right: 10px;
+  height: 20px;
+  width: auto;
+  display: inline-block;
+}
 
 /////////////////////category and rank myself/////////////////
 .rank_myself .card {

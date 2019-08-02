@@ -11,12 +11,20 @@ function Routes({ current_user, token }) {
       <Route
         exact
         path="/profile/:id"
-        render={props => <Profile {...props} current_user={current_user} />}
+        render={props => (
+          <Profile
+            {...props}
+            current_user={current_user}
+            staticProfile={false}
+          />
+        )}
       />
       <Route
         exact
         path="/staticprofile/:unique_url"
-        render={props => <StaticProfile {...props} />}
+        render={props => (
+          <StaticProfile {...props} current_user={current_user} staticProfile />
+        )}
       />
       <Route
         exact
