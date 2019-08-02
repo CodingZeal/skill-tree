@@ -10,14 +10,27 @@ export const myRatings = id => {
   });
 };
 
-export const oneStaticUser = unique_url => {
-  return fetch(`/staticuser/${unique_url}.json`).then(resp => {
+export const myLastRating = id => {
+  return fetch(`/mycurrentratings/${id}.json`).then(resp => {
     return resp.json();
   });
 };
 
-export const myStaticRatings = unique_url => {
-  return fetch(`/mystaticratings/${unique_url}.json`).then(resp => {
+export const createRating = (rating, token) => {
+  return fetch(`/ratings`, {
+    body: JSON.stringify(rating),
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": token
+    },
+    method: "POST"
+  }).then(resp => {
+    return resp.json();
+  });
+};
+
+export const allCategories = () => {
+  return fetch(`/categories`).then(resp => {
     return resp.json();
   });
 };

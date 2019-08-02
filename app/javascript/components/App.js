@@ -15,7 +15,8 @@ class App extends React.Component {
       sign_out_path,
       sign_in_path,
       current_user,
-      edit_user
+      edit_user,
+      token
     } = this.props;
 
     return (
@@ -27,7 +28,7 @@ class App extends React.Component {
           sign_out_path={sign_out_path}
         />
         <div className="wrapper">
-          <Routes />
+          <Routes current_user={current_user} token={token} />
         </div>
       </div>
     );

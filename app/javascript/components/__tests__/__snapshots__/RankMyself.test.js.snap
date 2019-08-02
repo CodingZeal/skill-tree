@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RankMyself> renders without crashing 1`] = `
+<div
+  className="rank_myself"
+>
+  <h1>
+     Rank A Developer
+  </h1>
+  <h3>
+     
+  </h3>
+  <div
+    className="card"
+  >
+    <button
+      className="rank_submition"
+      onClick={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;

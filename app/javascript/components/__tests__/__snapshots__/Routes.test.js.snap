@@ -9,7 +9,12 @@ exports[`<Routes> should render corretly 1`] = `
   />
   <Route
     exact={true}
-    path="/profile/iou22o38f4"
+    path="/staticprofile/:unique_url"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/rankmyself/:id"
     render={[Function]}
   />
 </BrowserRouter>

@@ -17,6 +17,10 @@ RSpec.describe Rating, type: :model do
       it 'will not create without a category_id' do
         expect(rating3).to_not be_valid
       end
+      it 'fails to create when there is no score' do
+        rating.score = nil
+        expect(rating).to_not be_valid
+      end
     end
   end
 end
